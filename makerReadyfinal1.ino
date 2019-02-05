@@ -6,9 +6,9 @@
   It parses them into ints, and uses those to fade an RGB LED.
 
   Circuit: Common-Cathode RGB LED wired like so:
-  - red anode: digital pin 3
-  - green anode: digital pin 5
-  - blue anode: digital pin 6
+  - red anode: digital pin 9
+  - green anode: digital pin 10
+  - blue anode: digital pin 11
   - cathode: GND
 
   created 13 Apr 2012
@@ -20,7 +20,7 @@
 */
 #include <SoftwareSerial.h>
 
-SoftwareSerial swSer(5, 4 );
+SoftwareSerial swSer(5, 4 );//Tx, Rx
 // pins for the LEDs:
 const int redPin = 9;
 const int greenPin = 10;
@@ -93,15 +93,16 @@ void loop() {
       // move cursor to beginning of first line
       swSer.write(254);
       swSer.write(128);
-      swSer.write("temp= ");
+      swSer.write("tmp= ");
       swSer.print(red);
       swSer.write(" , ");
+      swSer.write("Press=");
       swSer.write(254);
       swSer.write(192);
-      swSer.write("humidity=");
+      swSer.print(green*6);
+      swSer.print(" , ");    
+      swSer.print("hum%="); 
       swSer.print(blue);
-      swSer.print("  ");     
-      swSer.print(green);
 
     }
   }
