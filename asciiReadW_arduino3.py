@@ -15,7 +15,7 @@ ser.baudrate=9600
     
 while True:
 # Make a get request with the parameters.
-    response = requests.get("https://api.darksky.net/forecast/9d538331b3dd68f860627b9ad1976a89/40.377000,-105.521000")
+    response = requests.get("https://api.darksky.net/forecast/df1e920488de198910ad780fee1bbdc9/40.377000,-105.521000")
     data = response.json()
     littleBit = data["currently"]
     print(littleBit["temperature"])
